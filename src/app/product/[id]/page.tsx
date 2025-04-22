@@ -17,7 +17,7 @@ interface AdditionalWithQuantity extends Additional {
   quantity: number;
 }
 
-export default function ProductDetail({ params }: ProductDetailProps) {
+export default async function ProductDetail({ params }: ProductDetailProps) {
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
   const [selectedAdditionals, setSelectedAdditionals] = useState<AdditionalWithQuantity[]>([]);
