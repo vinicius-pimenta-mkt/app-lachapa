@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Header from '../../components/Header';
-import { Product, Additional, additionals } from '@/lib/data';
+import { Product, Additional, additionals } from '../../../lib/data';
 
 interface ProductDetailProps {
   params: {
