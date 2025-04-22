@@ -248,3 +248,4 @@ export default async function ProductDetail({ params }: ProductDetailProps) {
     </div>
   );
 }
+Renomear page.tsx para ProductDetailClient.tsx
