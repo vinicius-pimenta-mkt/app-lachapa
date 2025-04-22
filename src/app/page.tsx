@@ -1,6 +1,6 @@
 import { categories, products } from '@/lib/data';
 import CategorySection from '@/components/CategorySection';
-import Header from '../../components/Header';
+import Header from '@/components/Header';
 import CartButton from '@/components/CartButton';
 
 export default function Home() {
