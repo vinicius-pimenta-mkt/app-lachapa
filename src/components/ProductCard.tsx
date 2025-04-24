@@ -18,17 +18,16 @@ export default function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <div className="product-card bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full">
-      <div className="relative h-40 w-full bg-gray-50">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="relative h-64 w-full">
         <Image
           src={imageSrc}
           alt={product.name}
           fill
-          className="object-contain"
-          sizes="(max-width: 768px) 100vw, 300px"
+          className="object-cover"
         />
       </div>
-      <div className="p-4 flex-grow">
+      <div className="p-4">
         <h3 className="text-lg font-bold">{product.name}</h3>
         <p className="text-gray-700 text-sm mb-3">{product.description}</p>
         <div className="flex justify-between items-center">
