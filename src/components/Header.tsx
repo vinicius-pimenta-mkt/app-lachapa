@@ -25,15 +25,13 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="bg-primary text-white py-3">
+    <header className="bg-primary text-white py-4">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <div className="flex-shrink-0">
-            <Image src="/images/logo.png" alt="La Chapa" width={40} height={40} className="object-contain" />
-          </div>
-          <div className="ml-2">
-            <h1 className="text-lg font-bold leading-tight">La Chapa</h1>
-            <p className="text-xs leading-tight">Hamburgueria Artesanal</p>
+          <Image src="/images/logo.png" alt="La Chapa" width={50} height={50} />
+          <div className="ml-4">
+            <h1 className="text-xl font-bold">La Chapa</h1>
+            <p className="text-sm">Hamburgueria Artesanal</p>
           </div>
         </div>
         <div className="flex items-center">
