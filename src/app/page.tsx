@@ -1,72 +1,56 @@
-import Link from "next/link"
+'use client';
+
+import { useState, useEffect } from 'react';
+import ProductCard from '@/components/ProductCard';
+import Header from '@/components/Header';
+import { Product, categories } from '@/lib/data';
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState('burgers-tradicionais');
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    // Importação dinâmica para evitar problemas de SSR
+    const { products } = require('@/lib/data');
+    setProducts(products);
+  }, []);
+
+  // Filtrar produtos pela categoria selecionada
+  const filteredProducts = products.filter(product => product.category === selectedCategory);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-gradient-to-b from-gray-50 to-gray-100">
-      <div className="max-w-3xl w-full space-y-8 bg-white p-8 rounded-xl shadow-md">
-        <h1 className="text-3xl font-bold text-center text-gray-800">Como implantar seu aplicativo no Vercel</h1>
-
-        <div className="space-y-6">
-          <section className="space-y-2">
-            <h2 className="text-xl font-semibold text-gray-700">1. Prepare seu código</h2>
-            <p className="text-gray-600">
-              Certifique-se de que seu código está em um repositório Git (GitHub, GitLab ou Bitbucket). Se ainda não
-              estiver, crie um repositório e faça upload do seu código.
-            </p>
-          </section>
-
-          <section className="space-y-2">
-            <h2 className="text-xl font-semibold text-gray-700">2. Crie uma conta no Vercel</h2>
-            <p className="text-gray-600">
-              Acesse{" "}
-              <Link href="https://vercel.com/signup" className="text-blue-600 hover:underline">
-                vercel.com/signup
-              </Link>{" "}
-              e crie uma conta gratuita. Você pode se cadastrar usando sua conta do GitHub, GitLab ou Bitbucket.
-            </p>
-          </section>
-
-          <section className="space-y-2">
-            <h2 className="text-xl font-semibold text-gray-700">3. Importe seu projeto</h2>
-            <p className="text-gray-600">
-              No dashboard do Vercel, clique em "Add New..." e depois "Project". Selecione o repositório que contém seu
-              aplicativo.
-            </p>
-          </section>
-
-          <section className="space-y-2">
-            <h2 className="text-xl font-semibold text-gray-700">4. Configure seu projeto</h2>
-            <p className="text-gray-600">
-              O Vercel detectará automaticamente o framework que você está usando. Verifique as configurações e ajuste
-              se necessário.
-            </p>
-          </section>
-
-          <section className="space-y-2">
-            <h2 className="text-xl font-semibold text-gray-700">5. Implante seu projeto</h2>
-            <p className="text-gray-600">
-              Clique em "Deploy" e aguarde a conclusão da implantação. Após a implantação, você receberá um URL
-              permanente para seu aplicativo.
-            </p>
-          </section>
-
-          <section className="space-y-2">
-            <h2 className="text-xl font-semibold text-gray-700">6. Configure um domínio personalizado (opcional)</h2>
-            <p className="text-gray-600">
-              Para um site ainda mais profissional, você pode adicionar um domínio personalizado. Vá para a seção
-              "Domains" do seu projeto e siga as instruções.
-            </p>
-          </section>
+    <div className="min-h-screen pb-20">
+      <Header />
+      
+      <div className="container mx-auto px-4 py-8">
+        <h2 className="text-2xl font-bold mb-4">Cardápio</h2>
+        
+        {/* Categorias */}
+        <div className="mb-6 overflow-x-auto">
+          <div className="flex space-x-2 min-w-max">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-lg font-medium text-sm whitespace-nowrap transition ${
+                  selectedCategory === category.id
+                    ? 'bg-primary text-white'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
         </div>
-
-        <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-          <h3 className="text-lg font-medium text-blue-800">Dica importante</h3>
-          <p className="text-blue-700 mt-1">
-            O Vercel oferece hospedagem gratuita para projetos pessoais com algumas limitações. Para projetos comerciais
-            ou com necessidades específicas, considere os planos pagos.
-          </p>
+        
+        {/* Lista de produtos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
       </div>
-    </main>
-  )
+    </div>
+  );
 }
