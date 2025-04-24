@@ -131,27 +131,28 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
     <div className="min-h-screen pb-20">
       <Header />
       
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6">
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="relative h-64 w-full">
+          <div className="relative h-40 sm:h-48 w-full bg-gray-50">
             <Image
               src={imageSrc}
               alt={product.name}
               fill
-              className="object-cover"
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 600px"
             />
           </div>
           
-          <div className="p-6">
+          <div className="p-4 sm:p-6">
             <div className="flex justify-between items-start mb-4">
-              <h1 className="text-2xl font-bold text-primary">{product.name}</h1>
+              <h1 className="text-xl sm:text-2xl font-bold text-primary">{product.name}</h1>
               <span className="product-price text-lg">R$ {product.price.toFixed(2)}</span>
             </div>
             
             <p className="text-gray-700 mb-6">{product.description}</p>
             
             <div className="mb-6">
-              <h2 className="text-xl font-bold mb-3">Adicionais</h2>
+              <h2 className="text-lg sm:text-xl font-bold mb-3">Adicionais</h2>
               <div className="grid grid-cols-1 gap-3">
                 {additionals.map(additional => {
                   const isSelected = selectedAdditionals.some(a => a.id === additional.id);
@@ -199,7 +200,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
             </div>
             
             <div className="mb-6">
-              <h2 className="text-xl font-bold mb-3">Observações</h2>
+              <h2 className="text-lg sm:text-xl font-bold mb-3">Observações</h2>
               <textarea
                 value={observations}
                 onChange={(e) => setObservations(e.target.value)}
@@ -210,7 +211,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
             </div>
             
             <div className="mb-6">
-              <h2 className="text-xl font-bold mb-3">Quantidade</h2>
+              <h2 className="text-lg sm:text-xl font-bold mb-3">Quantidade</h2>
               <div className="additional-quantity-control inline-block">
                 <button 
                   onClick={() => handleQuantityChange(-1)}
@@ -231,13 +232,13 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
               </div>
             </div>
             
-            <div className="flex justify-between items-center">
-              <div className="text-xl font-bold">
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <div className="text-xl font-bold mb-4 sm:mb-0">
                 Total: <span className="text-primary">R$ {calculateTotalPrice()}</span>
               </div>
               <button 
                 onClick={addToCart}
-                className="add-button px-6 py-3"
+                className="add-button px-6 py-3 w-full sm:w-auto"
               >
                 Adicionar ao Carrinho
               </button>
