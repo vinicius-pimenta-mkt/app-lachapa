@@ -1,160 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --primary-color: #c20000;
-  --secondary-color: #ffcc00;
-  --background-color: #f5f5f5;
-  --text-color: #333333;
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-.la-chapa-header {
-  background-color: var(--primary-color);
-  color: white;
-}
+/* Adicione estas regras ao final do seu globals.css */
 
 .product-card {
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.product-title {
-  color: var(--primary-color);
-  font-weight: bold;
-}
-
-.product-price {
-  color: var(--primary-color);
-  font-weight: bold;
-  background-color: var(--secondary-color);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-}
-
-.add-button {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  font-weight: bold;
-  text-align: center;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.add-button:hover {
-  background-color: #a00000;
-}
-
-.quantity-button {
-  background-color: var(--primary-color);
-  color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.quantity-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-.cart-item {
-  border-bottom: 1px solid #eaeaea;
-}
-
-.cart-item:last-child {
-  border-bottom: none;
-}
-
-.cart-total {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  text-align: right;
-}
-
-.whatsapp-button {
-  background-color: #25D366;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  font-weight: bold;
-  text-align: center;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.whatsapp-button:hover {
-  background-color: #128C7E;
-}
-
-.text-primary {
-  color: var(--primary-color);
-}
-
-.bg-primary {
-  background-color: var(--primary-color);
-}
-
-.additional-quantity-control {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.additional-quantity-button {
-  background-color: var(--primary-color);
-  color: white;
-  width: 30px;
-  height: 30px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.additional-quantity-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-.additional-quantity-display {
-  padding: 0 10px;
-  min-width: 40px;
-  text-align: center;
+.product-card .image-container {
+  height: 140px;
+  position: relative;
+  background-color: #f9f9f9;
 }
 
 .additional-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  margin-bottom: 8px;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
   background-color: #f9f9f9;
-  border-radius: 4px;
-  border: 1px solid #eee;
 }
 
 .additional-item-info {
@@ -163,7 +27,50 @@ body {
 }
 
 .additional-checkbox {
-  margin-right: 10px;
-  width: 20px;
-  height: 20px;
+  margin-right: 0.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.additional-quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.additional-quantity-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.375rem;
+  background-color: #e5e5e5;
+  font-weight: bold;
+}
+
+.additional-quantity-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.additional-quantity-display {
+  display: inline-block;
+  text-align: center;
+  width: 2rem;
+}
+
+@media (max-width: 640px) {
+  .product-card .image-container {
+    height: 120px;
+  }
+  
+  .additional-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .additional-quantity-control {
+    margin-top: 0.5rem;
+    margin-left: 1.75rem;
+  }
 }
