@@ -1,12 +1,12 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 import ProductCard from '@/components/ProductCard';
 import Header from '@/components/Header';
 import { Product, categories } from '@/lib/data';
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState('burgers-tradicionais');
+  // Corrigido para 'tradicionais' para corresponder à categoria no arquivo data.ts
+  const [selectedCategory, setSelectedCategory] = useState('tradicionais');
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -21,7 +21,6 @@ export default function Home() {
   return (
     <div className="min-h-screen pb-20">
       <Header />
-      
       <div className="container mx-auto px-4 py-8">
         <h2 className="text-2xl font-bold mb-4">Cardápio</h2>
         
@@ -43,7 +42,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        
+
         {/* Lista de produtos */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProducts.map((product) => (
