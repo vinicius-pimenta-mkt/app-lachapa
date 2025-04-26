@@ -38,7 +38,7 @@ export default function Header() {
               alt="La Chapa Hamburgueria"
               width={60}
               height={60}
-              className="rounded-full"
+              className="h-10 w-auto"
             />
           </div>
           <div className="header-title">
