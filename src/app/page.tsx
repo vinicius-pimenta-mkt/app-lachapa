@@ -41,8 +41,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-      
-      <CartButton />
     </div>
   );
 }
