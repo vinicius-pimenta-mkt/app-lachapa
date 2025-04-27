@@ -1,5 +1,6 @@
 'use client';
-import Link from 'next/link';
+
+import Image from 'next/image';
 import { Product } from '@/lib/data';
 
 interface ProductCardProps {
@@ -8,19 +9,27 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="product-card mb-4">
-      <div className="p-4">
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="product-title text-lg">{product.name}</h3>
-          <span className="product-price">R$ {product.price.toFixed(2)}</span>
+    <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full transition hover:scale-105">
+      {/* Imagem do produto */}
+      <div className="relative w-full h-48">
+        <Image
+          src={`/images/${product.image}`}
+          alt={product.name}
+          fill
+          className="object-cover"
+        />
+      </div>
+
+      {/* Informações do produto */}
+      <div className="p-4 flex flex-col justify-between flex-grow">
+        <div>
+          <h3 className="text-lg font-bold text-primary mb-2">{product.name}</h3>
+          <p className="text-sm text-gray-600">{product.description}</p>
         </div>
-        <p className="text-sm text-gray-600 mb-4">{product.description}</p>
-        <Link
-          href={`/product/${product.id}`}
-          className="add-button w-full block text-center"
-        >
-          Adicionar
-        </Link>
+
+        <div className="mt-4">
+          <p className="text-primary font-bold">R$ {product.price.toFixed(2)}</p>
+        </div>
       </div>
     </div>
   );
