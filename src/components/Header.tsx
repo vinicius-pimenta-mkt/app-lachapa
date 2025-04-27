@@ -29,14 +29,14 @@ export default function Header() {
   return (
     <header className="la-chapa-header p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center py-10">
-        <div className="header-logo-title">
+        <div className="header-logo-title flex items-center space-x-4">
           <div className="la-chapa-logo ml-7 mt-9">
             <Image 
               src="/images/logo.png" 
               alt="La Chapa Hamburgueria" 
               width={80} 
-              height={50}
-              className="rounded-full"
+              height={80}
+              className="rounded-full object-cover"
             />
           </div>
           <div className="header-title">
@@ -45,7 +45,7 @@ export default function Header() {
           </div>
         </div>
         <div className="flex items-center space-x-4">
-          <Link href="/" className="text-white hover:text-yellow-400 transition-colors mt-4">
+          <Link href="/" className="text-white hover:underline hover:text-yellow-400 transition-colors mt-6">
             Cardápio
           </Link>
           <Link href="/cart" className="relative" style={{ position: 'fixed', top: '12px', right: '12px', zIndex: '50' }}>
