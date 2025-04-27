@@ -34,7 +34,7 @@ export default function Header() {
             <Image 
               src="/images/logo.png" 
               alt="La Chapa Hamburgueria" 
-              width={60} 
+              width={80} 
               height={33}
               className="rounded-full"
             />
