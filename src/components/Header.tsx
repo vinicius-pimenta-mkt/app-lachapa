@@ -28,9 +28,9 @@ export default function Header() {
 
   return (
     <header className="la-chapa-header p-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center py-6">
+      <div className="container mx-auto flex justify-between items-center py-10">
         <div className="header-logo-title">
-          <div className="la-chapa-logo ml-4 mt-2">
+          <div className="la-chapa-logo ml-6 mt-4">
             <Image 
               src="/images/logo.png" 
               alt="La Chapa Hamburgueria" 
