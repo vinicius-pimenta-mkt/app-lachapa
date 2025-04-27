@@ -22,7 +22,7 @@ export default function Cart() {
   const router = useRouter();
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isClient, setIsClient] = useState(false);
-  
+
   useEffect(() => {
     setIsClient(true);
     const cart = localStorage.getItem('cart');
@@ -30,49 +30,49 @@ export default function Cart() {
       setCartItems(JSON.parse(cart));
     }
   }, []);
-  
+
   const removeItem = (id: string) => {
     const newCart = cartItems.filter(item => item.id !== id);
     setCartItems(newCart);
     localStorage.setItem('cart', JSON.stringify(newCart));
     window.dispatchEvent(new Event('storage'));
   };
-  
+
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.totalPrice, 0).toFixed(2);
   };
-  
+
   const continueShopping = () => {
     router.push('/');
   };
-  
+
   const generateOrderSummary = () => {
     let summary = `*PEDIDO LA CHAPA HAMBURGUERIA*\n\n`;
-    
+
     cartItems.forEach((item, index) => {
       summary += `*Item ${index + 1}: ${item.product.name}*\n`;
       summary += `Quantidade: ${item.quantity}\n`;
-      
+
       if (item.additionals.length > 0) {
         summary += `Adicionais:\n`;
         item.additionals.forEach(additional => {
           summary += `- ${additional.name} (${additional.quantity}x) - R$ ${(additional.price * additional.quantity).toFixed(2)}\n`;
         });
       }
-      
+
       if (item.observations) {
         summary += `Observações: ${item.observations}\n`;
       }
-      
+
       summary += `Subtotal: R$ ${item.totalPrice.toFixed(2)}\n\n`;
     });
-    
+
     summary += `*TOTAL DO PEDIDO: R$ ${calculateTotal()}*\n\n`;
     summary += `Por favor, informe seu nome e endereço para entrega.`;
-    
+
     return summary;
   };
-  
+
   const copyOrderToClipboard = () => {
     const summary = generateOrderSummary();
     navigator.clipboard.writeText(summary)
@@ -84,7 +84,7 @@ export default function Cart() {
         alert('Não foi possível copiar o resumo do pedido.');
       });
   };
-  
+
   const sendToWhatsApp = () => {
     const summary = encodeURIComponent(generateOrderSummary());
     const phoneNumber = "5582982141000";
@@ -105,10 +105,10 @@ export default function Cart() {
   return (
     <div className="min-h-screen pb-20">
       <Header />
-      
+
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-2xl font-bold mb-6">Seu Carrinho</h1>
-        
+
         {cartItems.length === 0 ? (
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <p className="mb-4">Seu carrinho está vazio</p>
@@ -120,17 +120,17 @@ export default function Cart() {
           <>
             <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
               {cartItems.map(item => (
-                <div key={item.id} className="cart-item p-4 border-b">
-                  <div className="flex flex-col">
-                    <h3 className="text-lg font-bold text-red-600">{item.product.name}</h3>
-                    <p className="text-sm text-gray-700 mb-2">{item.product.description}</p>
+                <div key={item.id} className="bg-gray-50 rounded-lg p-6 shadow-md mb-6">
+                  <div className="flex flex-col space-y-2">
+                    <h3 className="text-2xl font-bold text-red-600">{item.product.name}</h3>
+                    <p className="text-sm text-gray-600">{item.product.description}</p>
 
-                    <p className="text-sm text-gray-600 mb-2">Quantidade: {item.quantity}</p>
+                    <p className="text-sm text-gray-800">Quantidade: {item.quantity}</p>
 
                     {item.additionals.length > 0 && (
-                      <div className="text-sm text-gray-600 mb-2">
+                      <div className="text-sm text-gray-800">
                         <span className="font-semibold">Adicionais:</span>
-                        <ul className="ml-4 list-disc">
+                        <ul className="list-disc list-inside ml-4">
                           {item.additionals.map(a => (
                             <li key={a.id}>
                               {a.quantity}x {a.name}
@@ -141,28 +141,30 @@ export default function Cart() {
                     )}
 
                     {item.observations && (
-                      <p className="text-sm text-gray-600 mb-2">
-                        <span className="font-semibold">Observações:</span> {item.observations}
+                      <p className="text-sm text-gray-700 italic">
+                        Observações: {item.observations}
                       </p>
                     )}
 
-                    <p className="text-primary font-bold">
-                      R$ {item.totalPrice.toFixed(2)}
-                    </p>
+                    <div className="flex justify-between items-center mt-4">
+                      <p className="text-lg font-bold text-primary">
+                        R$ {item.totalPrice.toFixed(2)}
+                      </p>
 
-                    <button 
-                      onClick={() => removeItem(item.id)}
-                      className="text-red-500 hover:text-red-700 text-sm mt-2 self-end"
-                    >
-                      Remover
-                    </button>
+                      <button 
+                        onClick={() => removeItem(item.id)}
+                        className="bg-red-600 hover:bg-red-700 text-white text-sm px-4 py-2 rounded-md transition"
+                      >
+                        Remover
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
 
               {/* Total do pedido em destaque */}
-              <div className="p-6 border-t">
-                <p className="text-xl font-bold text-primary text-right">
+              <div className="p-6 border-t mt-8 bg-white rounded-lg shadow-md">
+                <p className="text-2xl font-bold text-primary text-right">
                   Total do Pedido: R$ {calculateTotal()}
                 </p>
               </div>
