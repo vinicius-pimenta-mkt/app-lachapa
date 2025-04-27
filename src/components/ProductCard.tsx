@@ -1,5 +1,7 @@
 'use client';
+
 import Link from 'next/link';
+import Image from 'next/image';
 import { Product } from '@/lib/data';
 
 interface ProductCardProps {
@@ -8,20 +10,25 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="product-card mb-4">
-      <div className="p-4">
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="product-title text-lg">{product.name}</h3>
-          <span className="product-price">R$ {product.price.toFixed(2)}</span>
+    <Link href={`/product/${product.id}`} className="block">
+      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform cursor-pointer">
+        {/* Imagem no topo */}
+        <div className="relative w-full h-48">
+          <Image
+            src="/images/burger-tradicional.png" // aqui você pode depois dinamizar para trocar imagem conforme produto
+            alt={product.name}
+            fill
+            className="object-cover"
+          />
         </div>
-        <p className="text-sm text-gray-600 mb-4">{product.description}</p>
-        <Link 
-          href={`/product/${product.id}`} 
-          className="add-button w-full block text-center"
-        >
-          Adicionar
-        </Link>
+
+        {/* Nome, descrição e preço */}
+        <div className="p-4">
+          <h3 className="text-lg font-bold text-gray-900">{product.name}</h3>
+          <p className="text-sm text-gray-600">{product.description}</p>
+          <span className="text-primary font-bold block mt-2">R$ {product.price.toFixed(2)}</span>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
