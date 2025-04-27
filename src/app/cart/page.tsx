@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Header from '@/components/Header';
-import Image from 'next/image';
 import { Additional, Product } from '@/lib/data';
 
 interface AdditionalWithQuantity extends Additional {
@@ -36,8 +35,6 @@ export default function Cart() {
     const newCart = cartItems.filter(item => item.id !== id);
     setCartItems(newCart);
     localStorage.setItem('cart', JSON.stringify(newCart));
-    
-    // Disparar evento para atualizar o contador do carrinho
     window.dispatchEvent(new Event('storage'));
   };
   
@@ -90,11 +87,10 @@ export default function Cart() {
   
   const sendToWhatsApp = () => {
     const summary = encodeURIComponent(generateOrderSummary());
-    // Número fixo da La Chapa Hamburgueria
     const phoneNumber = "5582982141000";
     window.location.href = `https://wa.me/${phoneNumber}?text=${summary}`;
   };
-  
+
   if (!isClient) {
     return (
       <div className="min-h-screen">
@@ -105,7 +101,7 @@ export default function Cart() {
       </div>
     );
   }
-  
+
   return (
     <div className="min-h-screen pb-20">
       <Header />
@@ -116,108 +112,75 @@ export default function Cart() {
         {cartItems.length === 0 ? (
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <p className="mb-4">Seu carrinho está vazio</p>
-            <button 
-              onClick={continueShopping}
-              className="add-button"
-            >
+            <button onClick={continueShopping} className="add-button">
               Voltar para o Cardápio
             </button>
           </div>
         ) : (
           <>
             <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
-              {cartItems.map(item => {
-                let imageSrc = '/images/burger-tradicional.png';
-                
-                if (item.product.category === 'passaportes') {
-                  imageSrc = '/images/passaporte.png';
-                } else if (item.product.category === 'burgers-artesanais') {
-                  imageSrc = '/images/burger-artesanal.png';
-                }
-                
-                return (
-                  <div key={item.id} className="cart-item p-4 border-b">
-                    <div className="flex flex-col md:flex-row">
-                      <div className="relative h-24 w-24 flex-shrink-0 mb-4 md:mb-0">
-                        <Image
-                          src={imageSrc}
-                          alt={item.product.name}
-                          fill
-                          className="object-cover rounded-md"
-                        />
+              {cartItems.map(item => (
+                <div key={item.id} className="cart-item p-4 border-b">
+                  <div className="flex flex-col">
+                    <h3 className="text-lg font-bold text-red-600">{item.product.name}</h3>
+                    <p className="text-sm text-gray-700 mb-2">{item.product.description}</p>
+
+                    <p className="text-sm text-gray-600 mb-2">Quantidade: {item.quantity}</p>
+
+                    {item.additionals.length > 0 && (
+                      <div className="text-sm text-gray-600 mb-2">
+                        <span className="font-semibold">Adicionais:</span>
+                        <ul className="ml-4 list-disc">
+                          {item.additionals.map(a => (
+                            <li key={a.id}>
+                              {a.quantity}x {a.name}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      
-                      <div className="flex-grow md:ml-4">
-                        <div className="flex justify-between">
-                          <h3 className="text-lg font-bold">{item.product.name}</h3>
-                          <button 
-                            onClick={() => removeItem(item.id)}
-                            className="text-red-500 hover:text-red-700"
-                          >
-                            Remover
-                          </button>
-                        </div>
-                        
-                        <p className="text-sm text-gray-600 mb-2">Quantidade: {item.quantity}</p>
-                        
-                        {item.additionals.length > 0 && (
-                          <div className="text-sm text-gray-600 mb-2">
-                            <span className="font-semibold">Adicionais:</span>
-                            <ul className="ml-4">
-                              {item.additionals.map(a => (
-                                <li key={a.id}>
-                                  {a.name} ({a.quantity}x) - R$ {(a.price * a.quantity).toFixed(2)}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                        
-                        {item.observations && (
-                          <p className="text-sm text-gray-600 mb-2">
-                            <span className="font-semibold">Observações:</span> {item.observations}
-                          </p>
-                        )}
-                        
-                        <p className="text-primary font-bold">
-                          R$ {item.totalPrice.toFixed(2)}
-                        </p>
-                      </div>
-                    </div>
+                    )}
+
+                    {item.observations && (
+                      <p className="text-sm text-gray-600 mb-2">
+                        <span className="font-semibold">Observações:</span> {item.observations}
+                      </p>
+                    )}
+
+                    <p className="text-primary font-bold">
+                      R$ {item.totalPrice.toFixed(2)}
+                    </p>
+
+                    <button 
+                      onClick={() => removeItem(item.id)}
+                      className="text-red-500 hover:text-red-700 text-sm mt-2 self-end"
+                    >
+                      Remover
+                    </button>
                   </div>
-                );
-              })}
-              
-              <div className="p-4">
-                <div className="cart-total">
-                  Total: R$ {calculateTotal()}
                 </div>
+              ))}
+
+              {/* Total do pedido em destaque */}
+              <div className="p-6 border-t">
+                <p className="text-xl font-bold text-primary text-right">
+                  Total do Pedido: R$ {calculateTotal()}
+                </p>
               </div>
             </div>
-            
-            <div className="flex flex-col md:flex-row gap-4 justify-between">
-              <button 
-                onClick={continueShopping}
-                className="add-button"
-              >
+
+            {/* Botões */}
+            <div className="flex flex-col space-y-4 mt-8">
+              <button onClick={continueShopping} className="add-button">
                 Continuar Comprando
               </button>
-              
-              <div className="flex flex-col md:flex-row gap-4">
-                <button 
-                  onClick={copyOrderToClipboard}
-                  className="add-button"
-                >
-                  Copiar Resumo do Pedido
-                </button>
-                
-                <button 
-                  onClick={sendToWhatsApp}
-                  className="whatsapp-button"
-                >
-                  Finalizar no WhatsApp
-                </button>
-              </div>
+
+              <button onClick={copyOrderToClipboard} className="add-button">
+                Copiar Resumo do Pedido
+              </button>
+
+              <button onClick={sendToWhatsApp} className="whatsapp-button">
+                Finalizar no WhatsApp
+              </button>
             </div>
           </>
         )}
