@@ -13,7 +13,14 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Imagem do produto */}
       <div className="relative w-full h-48 bg-gray-100">
         <Image
-          src={`/images/${product.image}`}
+          src={
+            product.category === 'burgers-artesanais'
+            ? '/images/burger-artesanal.png'
+            : product.category === 'passaportes'
+            ? '/images/passaporte.png'
+            : product.category === 'tradicionais'
+            ? '/images/burger-tradicional.png'
+        }
           alt={product.name}
           layout="fill"
           objectFit="cover"
