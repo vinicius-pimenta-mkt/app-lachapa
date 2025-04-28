@@ -8,20 +8,20 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  // Escolher imagem baseado na categoria
-  let imageSrc = '/images/burger-tradicional.png'; // padrão
+  // Escolhe uma imagem padrão conforme a categoria do produto
+  let imageSrc = '/images/burger-tradicional.png'; // imagem padrão
 
   if (product.category === 'passaportes') {
     imageSrc = '/images/passaporte.png';
   } else if (product.category === 'burgers-artesanais') {
     imageSrc = '/images/burger-artesanal.png';
   } else if (product.category === 'bebidas') {
-    imageSrc = '/images/bebida.png'; // opcional se tiver imagem de bebida
+    imageSrc = '/images/bebida.png';
   }
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full transition hover:scale-105">
-      {/* Imagem */}
+      {/* Imagem fixa */}
       <div className="relative w-full h-48 bg-gray-100">
         <Image
           src={imageSrc}
@@ -32,7 +32,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         />
       </div>
 
-      {/* Informações */}
+      {/* Conteúdo do Card */}
       <div className="p-4 flex flex-col justify-between flex-grow">
         <div>
           <h3 className="text-lg font-bold text-primary mb-2 text-center">{product.name}</h3>
