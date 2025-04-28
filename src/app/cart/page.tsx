@@ -111,7 +111,7 @@ export default function Cart() {
       <Header />
       
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold mb-6">Seu Carrinho</h1>
+        <h1 className="text-2xl font-bold mb-6 text-primary">Seu Carrinho</h1>
         
         {cartItems.length === 0 ? (
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
@@ -133,12 +133,14 @@ export default function Cart() {
                   imageSrc = '/images/passaporte.png';
                 } else if (item.product.category === 'burgers-artesanais') {
                   imageSrc = '/images/burger-artesanal.png';
+                } else if (item.product.category === 'bebidas') {
+                  imageSrc = '/images/bebidas.png';
                 }
                 
                 return (
-                  <div key={item.id} className="cart-item p-4 border-b">
-                    <div className="flex flex-col md:flex-row">
-                      <div className="relative h-24 w-24 flex-shrink-0 mb-4 md:mb-0">
+                  <div key={item.id} className="cart-item">
+                    <div className="flex items-center">
+                      <div className="relative h-16 w-16 flex-shrink-0 mr-4">
                         <Image
                           src={imageSrc}
                           alt={item.product.name}
@@ -147,23 +149,26 @@ export default function Cart() {
                         />
                       </div>
                       
-                      <div className="flex-grow md:ml-4">
+                      <div className="cart-item-details">
                         <div className="flex justify-between">
-                          <h3 className="text-lg font-bold">{item.product.name}</h3>
+                          <h3 className="cart-item-title">{item.product.name}</h3>
                           <button 
                             onClick={() => removeItem(item.id)}
-                            className="text-red-500 hover:text-red-700"
+                            className="text-red-500 hover:text-red-700 ml-2"
+                            aria-label="Remover item"
                           >
-                            Remover
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                            </svg>
                           </button>
                         </div>
                         
-                        <p className="text-sm text-gray-600 mb-2">Quantidade: {item.quantity}</p>
+                        <p className="text-sm text-gray-600">Quantidade: {item.quantity}</p>
                         
                         {item.additionals.length > 0 && (
-                          <div className="text-sm text-gray-600 mb-2">
+                          <div className="cart-item-additionals">
                             <span className="font-semibold">Adicionais:</span>
-                            <ul className="ml-4">
+                            <ul className="ml-2">
                               {item.additionals.map(a => (
                                 <li key={a.id}>
                                   {a.name} ({a.quantity}x) - R$ {(a.price * a.quantity).toFixed(2)}
@@ -174,12 +179,14 @@ export default function Cart() {
                         )}
                         
                         {item.observations && (
-                          <p className="text-sm text-gray-600 mb-2">
-                            <span className="font-semibold">Observações:</span> {item.observations}
+                          <p className="cart-item-observations">
+                            <span className="font-semibold">Obs:</span> {item.observations}
                           </p>
                         )}
-                        
-                        <p className="text-primary font-bold">
+                      </div>
+                      
+                      <div className="cart-item-quantity-price">
+                        <p className="cart-item-price">
                           R$ {item.totalPrice.toFixed(2)}
                         </p>
                       </div>
