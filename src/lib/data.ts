@@ -4,7 +4,7 @@ export interface Product {
   description: string;
   price: number;
   category: string;
-  image: string; // <-- ADICIONADO AQUI
+  image: string; // ✅ Agora o tipo Product inclui a imagem
 }
 
 export interface Additional {
@@ -13,9 +13,8 @@ export interface Additional {
   price: number;
 }
 
-// Produtos
+// ✅ Produtos
 export const products: Product[] = [
-  // Burgers Artesanais
   {
     id: 'la-costela',
     name: 'La Costela',
@@ -212,54 +211,6 @@ export const products: Product[] = [
     category: 'passaportes',
     image: 'passaporte.png'
   },
-  {
-    id: 'passaporte-toscana',
-    name: 'Passaporte de Toscana',
-    description: 'Pão seda, 2 salsichas, linguiça toscana, milho, ervilha, tomate, batata palha, queijo ralado e molho especial.',
-    price: 21.00,
-    category: 'passaportes',
-    image: 'passaporte.png'
-  },
-  {
-    id: 'passaporte-carne',
-    name: 'Passaporte de Carne',
-    description: 'Pão seda, 2 salsichas, carne moída, milho, ervilha, tomate, batata palha, queijo ralado e molho especial.',
-    price: 20.00,
-    category: 'passaportes',
-    image: 'passaporte.png'
-  },
-  {
-    id: 'passaporte-carne-catupiry',
-    name: 'Passaporte de Carne c/ Catupiry',
-    description: 'Pão seda, 2 salsichas, carne moída, catupiry, milho, ervilha, tomate, batata palha, queijo ralado e molho especial.',
-    price: 22.00,
-    category: 'passaportes',
-    image: 'passaporte.png'
-  },
-  {
-    id: 'passaporte-carne-cheddar',
-    name: 'Passaporte de Carne c/ Cheddar',
-    description: 'Pão seda, 2 salsichas, carne moída, Cheddar, milho, ervilha, tomate, batata palha, queijo ralado e molho especial.',
-    price: 22.00,
-    category: 'passaportes',
-    image: 'passaporte.png'
-  },
-  {
-    id: 'passaporte-carne-sol',
-    name: 'Passaporte de Carne de Sol',
-    description: 'Pão seda, 2 salsichas, carne de sol desfiada, milho, ervilha, tomate, batata palha, queijo ralado e molho especial.',
-    price: 28.00,
-    category: 'passaportes',
-    image: 'passaporte.png'
-  },
-  {
-    id: 'passaporte-file-bovino',
-    name: 'Passaporte de Filé Bovino',
-    description: 'Pão seda, 2 salsichas, filé bovino, milho, ervilha, tomate, batata palha, queijo ralado e molho especial.',
-    price: 23.00,
-    category: 'passaportes',
-    image: 'passaporte.png'
-  },
 
   // Bebidas
   {
@@ -279,14 +230,6 @@ export const products: Product[] = [
     image: 'bebidas.png'
   },
   {
-    id: 'fanta-lata',
-    name: 'Fanta lata',
-    description: 'Refrigerante Fanta lata 350ml',
-    price: 5.00,
-    category: 'bebidas',
-    image: 'bebidas.png'
-  },
-  {
     id: 'agua-mineral',
     name: 'Água mineral',
     description: 'Água mineral sem gás 500ml',
@@ -301,53 +244,26 @@ export const products: Product[] = [
     price: 3.00,
     category: 'bebidas',
     image: 'bebidas.png'
-  },
-  {
-    id: 'guarana-1l',
-    name: 'Guaraná 1 litro',
-    description: 'Refrigerante Guaraná 1 litro',
-    price: 8.00,
-    category: 'bebidas',
-    image: 'bebidas.png'
-  },
-  {
-    id: 'guarana-2l',
-    name: 'Guaraná 2 litros',
-    description: 'Refrigerante Guaraná 2 litros',
-    price: 12.00,
-    category: 'bebidas',
-    image: 'bebidas.png'
-  },
-  {
-    id: 'coca-cola-1l',
-    name: 'Coca-cola 1 litro',
-    description: 'Refrigerante Coca-cola 1 litro',
-    price: 10.00,
-    category: 'bebidas',
-    image: 'bebidas.png'
-  },
-  {
-    id: 'coca-cola-2l',
-    name: 'Coca-cola 2 litros',
-    description: 'Refrigerante Coca-cola 2 litros',
-    price: 14.00,
-    category: 'bebidas',
-    image: 'bebidas.png'
-  },
-  {
-    id: 'coca-cola-zero-lata',
-    name: 'Coca-cola Zero lata',
-    description: 'Refrigerante Coca-cola Zero lata 350ml',
-    price: 5.50,
-    category: 'bebidas',
-    image: 'bebidas.png'
-  },
-  {
-    id: 'fanta-1l',
-    name: 'Fanta 1 litro',
-    description: 'Refrigerante Fanta 1 litro',
-    price: 8.00,
-    category: 'bebidas',
-    image: 'bebidas.png'
   }
+];
+
+export const additionals: Additional[] = [
+  { id: 'molho-barbecue', name: 'Molho Barbecue', price: 3.00 },
+  { id: 'cheddar', name: 'Cheddar', price: 3.00 },
+  { id: 'catupiry', name: 'Catupiry', price: 3.00 },
+  { id: 'presunto', name: 'Presunto', price: 2.00 },
+  { id: 'mussarela', name: 'Mussarela', price: 2.00 },
+  { id: 'bacon', name: 'Bacon', price: 3.00 },
+  { id: 'calabresa', name: 'Calabresa', price: 3.00 },
+  { id: 'queijo-coalho', name: 'Queijo Coalho', price: 4.00 },
+  { id: 'azeitona', name: 'Azeitona', price: 2.00 },
+  { id: 'milho', name: 'Milho', price: 2.00 },
+  { id: 'ovo', name: 'Ovo', price: 1.50 }
+];
+
+export const categories = [
+  { id: 'burgers-artesanais', name: 'Burgers Artesanais' },
+  { id: 'tradicionais', name: 'Tradicionais' },
+  { id: 'passaportes', name: 'Passaportes' },
+  { id: 'bebidas', name: 'Bebidas' }
 ];
