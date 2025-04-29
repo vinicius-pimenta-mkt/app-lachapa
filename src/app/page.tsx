@@ -17,32 +17,26 @@ export default function Home() {
       <Header />
       
       <div className="container mx-auto px-4 py-8">
-        {/* Categorias */}
-        <div className="mb-6 overflow-x-auto">
-          <div className="flex space-x-2 min-w-max">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`category-button ${
-                  selectedCategory === category.id ? 'active' : ''
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-        </div>
+        {/* Novo Título Cardápio */}
+        <h2 className="text-3xl font-bold text-white bg-primary p-4 rounded-md text-center mb-8">
+          Cardápio
+        </h2>
 
-        {/* Lista de produtos */}
-        <div className="products-grid">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {/* Categorias como Seções */}
+        {categories.map((category) => (
+          <div key={category.id} className="mb-10">
+            <h3 className="text-2xl font-bold text-primary mb-6">{category.name}</h3>
+
+            <div className="products-grid">
+              {products
+                .filter(product => product.category === category.id)
+                .map(product => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+            </div>
+          </div>
+        ))}
       </div>
-      
-      <CartButton />
     </div>
   );
 }
