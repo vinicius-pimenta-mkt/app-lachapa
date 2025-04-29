@@ -202,7 +202,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
             
             <div className="flex flex-col items-center gap-4">
               <div className="bg-yellow-400 text-primary font-bold text-xl px-6 py-3 rounded-lg shadow-md">
-                Total: R$ {calculateTotalPrice()}
+                Total: <span className="text-primary">R$ {calculateTotal()}</span>
               </div>
               <button 
                 onClick={addToCart}
