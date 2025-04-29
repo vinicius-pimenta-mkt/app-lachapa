@@ -141,11 +141,14 @@ export default function Cart() {
                   <div key={item.id} className="cart-item">
                     <div className="flex items-center">                      
                       <div className="cart-item-details">
-                        <div className="flex justify-between">
-                          <h3 className="cart-item-title">{item.product.name}</h3>
+                        <div className="flex justify-between items-start gap-2">
+                          <div>
+                            <h3 className="cart-item-title">{item.product.name}</h3>
+                            <p className="text-sm text-gray-600">{item.product.description}</p> {/* Descrição adicionada */}
+                          </div>
                           <button 
                             onClick={() => removeItem(item.id)}
-                            className="text-red-500 hover:text-red-700 ml-2"
+                            className="text-red-500 hover:text-red-700 ml-2 flex-shrink-0"
                             aria-label="Remover item"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
