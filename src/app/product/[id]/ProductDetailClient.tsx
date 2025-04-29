@@ -101,21 +101,21 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
     <div className="min-h-screen pb-20 product-page">
       <Header />
       <div className="container mx-auto px-4 py-8">
-        <div className="product-page-content bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="product-detail-image">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row">
+          {/* Imagem do produto */}
+          <div className="relative w-full md:w-1/2 h-64 md:h-auto">
             <Image
               src={imageSrc}
               alt={product.name}
               fill
-              className="object-cover"
-              priority
+              className="object-cover rounded-l-lg"
             />
           </div>
           
-          <div className="p-6 product-content">
+          <div className="p-6 flex flex-col justify-center md:w-1/2">
             <div className="flex justify-between items-start mb-4">
-              <h1 className="text-2xl font-bold text-primary">{product.name}</h1>
-              <span className="product-price text-lg">R$ {product.price.toFixed(2)}</span>
+              <h1 className="text-2xl font-bold text-primary mb-4">{product.name}</h1>
+              <p className="text-gray-700 mb-6">{product.description}</p>
             </div>
             
             <p className="text-gray-700 mb-6">{product.description}</p>
@@ -200,9 +200,9 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
               </div>
             </div>
             
-            <div className="flex justify-between items-center">
-              <div className="text-xl font-bold">
-                Total: <span className="text-primary">R$ {calculateTotal()}</span>
+            <div className="flex flex-col items-center gap-4">
+              <div className="bg-yellow-400 text-primary font-bold text-xl px-6 py-3 rounded-lg shadow-md">
+                Total: R$ {calculateTotalPrice()}
               </div>
               <button 
                 onClick={addToCart}
