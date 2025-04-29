@@ -139,16 +139,7 @@ export default function Cart() {
                 
                 return (
                   <div key={item.id} className="cart-item">
-                    <div className="flex items-center">
-                      <div className="relative h-16 w-16 flex-shrink-0 mr-4">
-                        <Image
-                          src={imageSrc}
-                          alt={item.product.name}
-                          fill
-                          className="object-cover rounded-md"
-                        />
-                      </div>
-                      
+                    <div className="flex items-center">                      
                       <div className="cart-item-details">
                         <div className="flex justify-between">
                           <h3 className="cart-item-title">{item.product.name}</h3>
