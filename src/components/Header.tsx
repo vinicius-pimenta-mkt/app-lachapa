@@ -25,10 +25,10 @@ export default function Header() {
       <div className="container mx-auto px-6 header-content">
         <div className="header-logo-title">
           <div className="la-chapa-logo">
-            <Image 
-              src="/images/logo.png" 
-              alt="La Chapa Hamburgueria" 
-              width={80} 
+            <Image
+              src="/images/logo.png"
+              alt="La Chapa Hamburgueria"
+              width={80}
               height={80}
               className="rounded-full"
             />
@@ -40,15 +40,15 @@ export default function Header() {
         </div>
 
         {/* Carrinho + botão cardápio */}
-        <div className="flex flex-col items-end mr-4">
+        <div className="flex flex-col items-end mr-2 gap-1"> {/* Reduzi o mr-4 para mr-2 */}
           {/* Botão carrinho */}
           <Link href="/cart" className="relative">
-            <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center relative">
-              <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button className="w-[64px] h-[64px] bg-white rounded-full flex items-center justify-center relative shadow-md"> {/* Aumentei w e h para 64px */}
+              <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"> {/* Aumentei w e h do ícone */}
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               {cartCount > 0 && (
-                <span className="absolute -bottom-1 -right-1 bg-red-600 text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-bold">
+                <span className="absolute -bottom-1 -right-1 bg-yellow-400 text-primary rounded-full w-4 h-4 flex items-center justify-center text-[9px] font-bold border-2 border-white"> {/* Alterei bg para yellow-400, text para primary, w e h para 4px, text para 9px */}
                   {cartCount}
                 </span>
               )}
@@ -58,7 +58,7 @@ export default function Header() {
           {/* Botão Cardápio */}
           <Link
             href="/"
-            className="mt-1 bg-white text-primary text-xs px-2 py-1 rounded-full font-semibold shadow-sm"
+            className="bg-white text-primary text-xs px-3 py-1 rounded-full font-semibold border border-primary shadow-sm"
           >
             Cardápio
           </Link>
