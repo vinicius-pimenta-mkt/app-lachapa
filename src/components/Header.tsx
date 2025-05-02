@@ -8,19 +8,13 @@ export default function Header() {
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
-    // Função para atualizar a contagem do carrinho
     const updateCartCount = () => {
       const cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart') || '[]') : [];
       setCartCount(cart.length);
     };
 
-    // Atualizar a contagem inicial
     updateCartCount();
-
-    // Adicionar listener para eventos de storage (quando o carrinho for atualizado)
     window.addEventListener('storage', updateCartCount);
-
-    // Cleanup
     return () => {
       window.removeEventListener('storage', updateCartCount);
     };
@@ -44,22 +38,29 @@ export default function Header() {
             <p className="text-lg text-yellow-200">Hamburgueria Artesanal</p>
           </div>
         </div>
-        <div className="flex items-center space-x-6 m1-auto">
-          <Link href="/" className="text-white hover:text-yellow-400 transition-colors text-lg font-medium">
-            Cardápio
-          </Link>
+
+        {/* Carrinho + botão cardápio */}
+        <div className="flex flex-col items-end mr-4">
+          {/* Botão carrinho */}
           <Link href="/cart" className="relative">
-            <button className="flex items-center px-2 py-1 rounded-full bg-white text-primary font-medium text-sm">
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center relative">
+              <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
-              Carrinho
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
+                <span className="absolute -bottom-1 -right-1 bg-red-600 text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-bold">
                   {cartCount}
                 </span>
               )}
             </button>
+          </Link>
+
+          {/* Botão Cardápio */}
+          <Link
+            href="/"
+            className="mt-1 bg-white text-primary text-xs px-2 py-1 rounded-full font-semibold shadow-sm"
+          >
+            Cardápio
           </Link>
         </div>
       </div>
