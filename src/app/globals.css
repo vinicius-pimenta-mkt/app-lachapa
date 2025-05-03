@@ -156,8 +156,8 @@ body {
     background-color: white !important; /* Cor de fundo branca (como no desktop) */
     color: var(--primary-color) !important; /* Cor do texto vermelha (como no desktop) */
     font-weight: bold !important;
-    padding: 0.25rem 0.75rem !important; /* Padding similar ao desktop */
-    font-size: 0.8rem !important; /* Tamanho da fonte similar ao desktop */
+    padding: 4px 8px !important; /* Padding similar ao desktop */
+    font-size: 0.7rem !important; /* Tamanho da fonte similar ao desktop */
     border: 2px solid var(--primary-color) !important; /* Borda vermelha (como no desktop) */
     border-radius: 9999px !important; /* Bordas arredondadas (como no desktop) */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
@@ -180,7 +180,7 @@ body {
   .header-buttons-container {
     display: flex !important;
     flex-direction: column !important; /* mobile: empilha carrinho e botão */
-    align-items: flex-end !important;
+    align-items: center !important;
     margin-right: 4px !important;
     gap: 0.5rem !important;
   }
