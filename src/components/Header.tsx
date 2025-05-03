@@ -40,7 +40,7 @@ export default function Header() {
         </div>
 
         {/* Carrinho + botão cardápio */}
-        <div className="header-buttons-container menu-button-mobile">
+        <div className="header-buttons-container">
           {/* Botão carrinho */}
           <Link href="/cart" className="relative">
             <button className="cart-button-custom border border-white rounded-md p-2">
