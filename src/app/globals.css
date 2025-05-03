@@ -105,7 +105,7 @@ body {
 /* Ajustes responsivos para mobile */
 @media (max-width: 640px) {
   .header-buttons-container {
-    margin-right: 18px !important; /* empurrando mais à direita */
+    margin-right: 10px !important; /* empurrando mais à direita */
     align-items: flex-end !important;
     gap: 8px !important; /* pequeno espaço entre carrinho e botão cardápio */
   }
