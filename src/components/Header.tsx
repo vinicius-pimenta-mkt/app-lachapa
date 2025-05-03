@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,6 +14,7 @@ export default function Header() {
 
     updateCartCount();
     window.addEventListener('storage', updateCartCount);
+    
     return () => {
       window.removeEventListener('storage', updateCartCount);
     };
@@ -40,25 +40,24 @@ export default function Header() {
         </div>
 
         {/* Carrinho + botão cardápio */}
-        <div className="flex flex-col items-end mr-2 gap-1"> {/* Reduzi o mr-4 para mr-2 */}
+        <div className="header-buttons-container">
           {/* Botão carrinho */}
           <Link href="/cart" className="relative">
-            <button className="w-[64px] h-[64px] bg-white rounded-full flex items-center justify-center relative shadow-md"> {/* Aumentei w e h para 64px */}
-              <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"> {/* Aumentei w e h do ícone */}
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            <button className="cart-button-custom border border-white rounded-md p-2">
+              <svg className="cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="square" strokeLinejoin="square" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               {cartCount > 0 && (
-                <span className="absolute -bottom-1 -right-1 bg-yellow-400 text-primary rounded-full w-4 h-4 flex items-center justify-center text-[9px] font-bold border-2 border-white"> {/* Alterei bg para yellow-400, text para primary, w e h para 4px, text para 9px */}
+                <span className="cart-count">
                   {cartCount}
                 </span>
               )}
             </button>
           </Link>
-
           {/* Botão Cardápio */}
           <Link
             href="/"
-            className="bg-white text-primary text-xs px-3 py-1 rounded-full font-semibold border border-primary shadow-sm"
+            className="menu-button text-[10px] text-red-600 rounded-md px-3 py-1 font-semibold border border-yellow-300 shadow-sm"
           >
             Cardápio
           </Link>
