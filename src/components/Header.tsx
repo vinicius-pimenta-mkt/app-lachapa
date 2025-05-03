@@ -22,7 +22,7 @@ export default function Header() {
 
   return (
     <header className="la-chapa-header shadow-md">
-      <div className="container mx-auto px-6 header-content">
+      <div className="container mx-auto px-8 header-content">
         <div className="header-logo-title">
           <div className="la-chapa-logo">
             <Image
@@ -40,7 +40,7 @@ export default function Header() {
         </div>
 
         {/* Carrinho + botão cardápio */}
-        <div className="header-buttons-container">
+        <div className="header-buttons-container menu-button-mobile">
           {/* Botão carrinho */}
           <Link href="/cart" className="relative">
             <button className="cart-button-custom border border-white rounded-md p-2">
