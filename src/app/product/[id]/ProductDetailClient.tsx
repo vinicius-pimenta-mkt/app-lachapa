@@ -35,7 +35,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
         <Header />
         <div className="container mx-auto px-4 py-8 text-center">
           <h2 className="text-xl font-bold">Produto não encontrado</h2>
-          <button 
+          <button
             onClick={() => router.push('/')}
             className="add-button mt-4"
           >
@@ -101,20 +101,20 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
       <Header />
       <div className="container mx-auto px-4 py-8">
         <div className="bg-white rounded-lg shadow-md overflow-hidden flex md:flex-row">
-          {/* Card da Imagem, Nome e Descrição */}
-          <div className="md:w-1/2 p-6">
+          {/* Card da Imagem, Nome e Descrição (Imagem à Esquerda) */}
+          <div className="md:w-1/2 p-6 mt-8">
             <div className="bg-white shadow-md rounded-lg flex items-center p-4 gap-4">
               <div className="relative w-28 h-28 flex-shrink-0">
                 <Image
                   src={imageSrc}
                   alt={product.name}
-                  width={112}
+                  width={138}
                   height={112}
                   className="object-cover rounded-md"
                 />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-red-700 mb-1">{product.name}</h1>
+                <h1 className="text-xl font-bold text-red-700 mb-0.5">{product.name}</h1>
                 <p className="text-gray-700 text-sm">{product.description}</p>
               </div>
             </div>
@@ -170,10 +170,10 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
             <div className="mb-4">
               <h2 className="text-xl font-bold mb-3">Observações</h2>
               <textarea
+                className="w-full p-4 bg-white text-black border border-gray-300 rounded-xl mt-4 shadow-sm resize-none"
                 value={observations}
                 onChange={(e) => setObservations(e.target.value)}
                 placeholder="Ex: Sem cebola, molho à parte, etc."
-                className="w-full p-2 border border-gray-300 rounded-md text-sm"
                 rows={2}
               />
             </div>
@@ -200,9 +200,9 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-4 mt-6">
-              <div className="bg-yellow-300 text-black font-bold px-3 py-1 rounded-lg text-center text-sm">
-                Total: <span className="text-primary">R$ {calculateTotal()}</span>
+            <div className="flex flex-col items-center gap-5 mt-7">
+              <div className="bg-yellow-300 rounded-lg px-7 py-4 text-center font-bold text-black text-lg mb-4 shadow">
+                <span className="total-box mt-8">Total: R$ {calculateTotal()}</span>
               </div>
               <button
                 onClick={addToCart}
