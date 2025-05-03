@@ -57,7 +57,7 @@ export default function Header() {
           {/* Botão Cardápio */}
           <Link
             href="/"
-            className="menu-button text-[10px] text-red-600 rounded-md px-3 py-1 font-semibold border border-yellow-300 shadow-sm"
+            className="menu-button menu-button-mobile block md:hidden text-[10px] text-red-600 rounded-md px-3 py-1 font-semibold border border-yellow-300 shadow-sm"
           >
             Cardápio
           </Link>
