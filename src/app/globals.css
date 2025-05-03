@@ -20,8 +20,8 @@ body {
   color: white;
   position: relative;
   z-index: 10;
-  padding-top: 2.8rem;
-  padding-bottom: 2.2rem;
+  padding-top: 2.50rem;
+  padding-bottom: 2.0rem;
 }
 
 .header-content {
@@ -105,7 +105,7 @@ body {
 /* Ajustes responsivos para mobile */
 @media (max-width: 640px) {
   .header-buttons-container {
-    margin-right: 7px !important; /* empurrando mais à direita */
+    margin-right: 5px !important; /* empurrando mais à direita */
     align-items: flex-end !important;
     gap: 0.5rem !important; /* pequeno espaço entre carrinho e botão cardápio */
   }
@@ -156,7 +156,10 @@ body {
 /* Ajuste específico para mobile */
 @media (max-width: 640px) {
   .header-buttons-container {
-    margin-right: 10px !important;  /* Mais espaço à direita em mobile */
+    flex-direction: column !important; /* mobile: empilha carrinho e botão */
+    align-items: flex-end !important;
+    margin-right: 5px !important;
+    gap: 0.5rem !important;
   }
 }
 
