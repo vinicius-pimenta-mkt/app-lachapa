@@ -108,7 +108,7 @@ body {
     display: flex !important;
     flex-direction: column !important; /* Garante que os botões fiquem em coluna */
     align-items: flex-end !important; /* Alinha os botões à direita */
-    margin-right: 15px !important;
+    margin-right: 6px !important;
     gap: 0.5rem !important;
     margin-top: 2.2rem !important;
   }
@@ -163,7 +163,6 @@ body {
     border-radius: 9999px !important; /* Bordas arredondadas (como no desktop) */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
     width: fit-content !important; /* Ajusta a largura ao conteúdo */
-    margin-top: 0.5rem !important; /* Adiciona um pouco de espaço abaixo do carrinho */
   }
 }
 
@@ -182,7 +181,7 @@ body {
     display: flex !important;
     flex-direction: column !important; /* mobile: empilha carrinho e botão */
     align-items: flex-end !important;
-    margin-right: 15px !important;
+    margin-right: 6px !important;
     gap: 0.5rem !important;
     margin-top: 2.2rem !important;
   }
