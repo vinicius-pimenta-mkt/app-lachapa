@@ -157,7 +157,7 @@ body {
     background-color: white !important; /* Cor de fundo branca (como no desktop) */
     color: var(--primary-color) !important; /* Cor do texto vermelha (como no desktop) */
     font-weight: bold !important;
-    padding: 0.18rem 0.68rem !important; /* Padding similar ao desktop */
+    padding: 3px 6px !important; /* Padding similar ao desktop */
     font-size: 0.6rem !important; /* Tamanho da fonte similar ao desktop */
     border: 2px solid var(--primary-color) !important; /* Borda vermelha (como no desktop) */
     border-radius: 9999px !important; /* Bordas arredondadas (como no desktop) */
