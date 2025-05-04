@@ -157,8 +157,8 @@ body {
     background-color: white !important; /* Cor de fundo branca (como no desktop) */
     color: var(--primary-color) !important; /* Cor do texto vermelha (como no desktop) */
     font-weight: bold !important;
-    padding: 2px 5px !important; /* Padding similar ao desktop */
-    font-size: 0.3rem !important; /* Tamanho da fonte similar ao desktop */
+    padding: 3px 6px !important; /* Padding similar ao desktop */
+    font-size: 0.6rem !important; /* Tamanho da fonte similar ao desktop */
     border: 2px solid var(--primary-color) !important; /* Borda vermelha (como no desktop) */
     border-radius: 9999px !important; /* Bordas arredondadas (como no desktop) */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
@@ -489,10 +489,10 @@ body {
   background-color: #facc15;
   color: var(--primary-color);
   font-weight: bold;
-  padding: 0.50rem 1.0rem;
+  padding: 0.5rem 1.0rem;
   border-radius: 8px;
   text-align: center;
-  font-size: 1.08rem; /* text-lg */
+  font-size: 1.0rem; /* text-lg */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -502,10 +502,24 @@ body {
 }
 
 .item-price-box {
-  background-color: #fef08a; /* amarelo suave */
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  color: #dc2626; /* vermelho */
+  color: var(--primary-color);
   font-weight: bold;
+  background-color: var(--secondary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
   font-size: 1rem;
+}
+
+.cart-item-observations {
+  background-color: #ffffff;            /* Fundo branco */
+  border: 1px solid #d1d5db;            /* Borda cinza clara (tailwind gray-300) */
+  border-radius: 8px;                   /* Borda arredondada */
+  padding: 8px 18px;
+  color: #374151;                       /* Texto cinza escuro (gray-700) */
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  max-width: 100%;
+  display: block;
+  word-wrap: break-word;
 }
