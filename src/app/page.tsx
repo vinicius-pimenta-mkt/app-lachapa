@@ -18,8 +18,8 @@ export default function Home() {
       
       <div className="container mx-auto px-4 py-8">
         {/* Novo Título Cardápio */}
-        <h2 className="text-3xl font-bold text-white bg-primary p-4 rounded-md text-center mb-8">
-          Cardápio
+        <h2 className="titulo-cardapio text-3xl font-bold bg-primary p-4 rounded-md text-center mb-8">
+          <span className="texto-cardapio">Cardápio</span>
         </h2>
 
         {/* Categorias como Seções */}
