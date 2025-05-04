@@ -157,8 +157,8 @@ body {
     background-color: white !important; /* Cor de fundo branca (como no desktop) */
     color: var(--primary-color) !important; /* Cor do texto vermelha (como no desktop) */
     font-weight: bold !important;
-    padding: 3px 6px !important; /* Padding similar ao desktop */
-    font-size: 0.6rem !important; /* Tamanho da fonte similar ao desktop */
+    padding: 2px 5px !important; /* Padding similar ao desktop */
+    font-size: 0.3rem !important; /* Tamanho da fonte similar ao desktop */
     border: 2px solid var(--primary-color) !important; /* Borda vermelha (como no desktop) */
     border-radius: 9999px !important; /* Bordas arredondadas (como no desktop) */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
@@ -494,4 +494,18 @@ body {
   text-align: center;
   font-size: 1.08rem; /* text-lg */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.cart-total-spacing {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.item-price-box {
+  background-color: #fef08a; /* amarelo suave */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: #dc2626; /* vermelho */
+  font-weight: bold;
+  font-size: 1rem;
 }
