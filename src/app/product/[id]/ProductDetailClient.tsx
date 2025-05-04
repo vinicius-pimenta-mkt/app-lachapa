@@ -170,7 +170,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
             <div className="mb-4">
               <h2 className="text-xl font-bold mb-3">Observações</h2>
               <textarea
-                className="w-full p-4 bg-white text-black border border-gray-300 rounded-xl mt-4 shadow-sm resize-none"
+                className="cart-item-observations"
                 value={observations}
                 onChange={(e) => setObservations(e.target.value)}
                 placeholder="Ex: Sem cebola, molho à parte, etc."
@@ -201,7 +201,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
             </div>
 
             <div className="flex flex-col items-center gap-5 mt-7">
-              <div className="bg-yellow-300 rounded-lg px-7 py-4 text-center font-bold text-black text-lg mb-4 shadow">
+              <div className="bg-yellow-300 rounded-lg px-7 py-4 text-center font-bold text-black text-lg mb-4 shadow cart-total-spacing">
                 <span className="total-box mt-8">Total: R$ {calculateTotal()}</span>
               </div>
               <button
