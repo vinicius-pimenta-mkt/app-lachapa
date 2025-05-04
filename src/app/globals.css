@@ -523,3 +523,12 @@ body {
   display: block;
   word-wrap: break-word;
 }
+
+.titulo-cardapio {
+  color: white !important; 
+}
+
+.texto-cardapio {
+  margin-left: 24px; /* Ou ajuste como preferir, ex: 1rem, 20px etc */
+  display: inline-block;
+}
