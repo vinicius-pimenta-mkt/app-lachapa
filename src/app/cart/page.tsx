@@ -70,7 +70,6 @@ export default function Cart() {
     });
 
     summary += `*TOTAL DO PEDIDO: R$ ${calculateTotal()}*\n\n`;
-    summary += `Por favor, informe seu nome e endereço para entrega.`;
 
     return summary;
   };
