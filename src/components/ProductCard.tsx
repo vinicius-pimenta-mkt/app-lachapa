@@ -9,28 +9,16 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  // Determinar a imagem com base na categoria
-  let imageSrc = '/images/logo.png'; // Imagem padrão caso nenhuma categoria corresponda
-  if (product.category === 'burgers-artesanais') {
-    imageSrc = '/images/burger-artesanal.png';
-  } else if (product.category === 'tradicionais') {
-    imageSrc = '/images/burger-tradicional.png';
-  } else if (product.category === 'passaportes') {
-    imageSrc = '/images/passaporte.png';
-  } else if (product.category === 'bebidas') {
-    imageSrc = '/images/bebidas.png';
-  }
-
   return (
     <div className="product-card">
       <div className="product-image-container">
         <Image
-          src={imageSrc}
+          src={product.image}
           alt={product.name}
           fill
           className="product-image"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          priority={product.category === 'burgers-artesanais'} // Priorizar carregamento de imagens da primeira categoria visível
+          priority={product.category === 'burgers-artesanais'} 
         />
       </div>
       <div className="product-content">
@@ -51,4 +39,3 @@ export default function ProductCard({ product }: ProductCardProps) {
     </div>
   );
 }
-
