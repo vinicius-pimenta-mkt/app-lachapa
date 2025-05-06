@@ -46,12 +46,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
     );
   }
 
-  let imageSrc = '/images/burger-tradicional.png';
-  if (product.category === 'passaportes') {
-    imageSrc = '/images/passaporte.png';
-  } else if (product.category === 'burgers-artesanais') {
-    imageSrc = '/images/burger-artesanal.png';
-  }
+  const imageSrc = product.image || '/images/logo.png'; 
 
   const handleQuantityChange = (value: number) => {
     const newQuantity = quantity + value;
@@ -102,14 +97,14 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
       <div className="container mx-auto px-4 py-8">
         <div className="bg-white rounded-lg shadow-md overflow-hidden flex md:flex-row">
           {/* Card da Imagem, Nome e Descrição (Imagem à Esquerda) */}
-          <div className="md:w-1/2 p-6 mt-8">
+          <div className="md:w-1/2 p-6 mt-16">
             <div className="bg-white shadow-md rounded-lg flex items-center p-4 gap-4">
-              <div className="relative w-28 h-28 flex-shrink-0">
+              <div className="relative w-28 h-28 flex-shrink-0">
                 <Image
                   src={imageSrc}
                   alt={product.name}
-                  width={138}
-                  height={112}
+                  width={product.imageWidth || 150}
+                  height={product.imageHeight || 150}
                   className="object-cover rounded-md"
                 />
               </div>
