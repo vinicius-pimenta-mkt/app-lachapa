@@ -21,6 +21,8 @@ export const products: Product[] = [
     price: 24.00,
     category: 'burgers-artesanais',
     image: '/images/burger-artesanal.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'la-file-bovino',
@@ -29,6 +31,8 @@ export const products: Product[] = [
     price: 25.00,
     category: 'burgers-artesanais',
     image: '/images/burger-artesanal.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'la-alcatra',
@@ -37,6 +41,8 @@ export const products: Product[] = [
     price: 25.00,
     category: 'burgers-artesanais',
     image: '/images/burger-artesanal.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'la-cupim',
@@ -45,6 +51,8 @@ export const products: Product[] = [
     price: 27.00,
     category: 'burgers-artesanais',
     image: '/images/burger-artesanal.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'la-picanha',
@@ -53,6 +61,8 @@ export const products: Product[] = [
     price: 30.00,
     category: 'burgers-artesanais',
     image: '/images/burger-artesanal.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'la-costela-duplo',
@@ -61,6 +71,8 @@ export const products: Product[] = [
     price: 34.00,
     category: 'burgers-artesanais',
     image: '/images/burger-artesanal.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'la-alcatra-duplo',
@@ -69,6 +81,8 @@ export const products: Product[] = [
     price: 35.00,
     category: 'burgers-artesanais',
     image: '/images/burger-artesanal.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'la-picanha-duplo',
@@ -77,6 +91,8 @@ export const products: Product[] = [
     price: 40.00,
     category: 'burgers-artesanais',
     image: '/images/burger-artesanal.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   
   // Tradicionais
@@ -87,6 +103,8 @@ export const products: Product[] = [
     price: 15.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'americano',
@@ -95,6 +113,8 @@ export const products: Product[] = [
     price: 16.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'x-burguer',
@@ -103,6 +123,8 @@ export const products: Product[] = [
     price: 14.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'x-burguer-duplo',
@@ -111,6 +133,8 @@ export const products: Product[] = [
     price: 20.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'x-bacon',
@@ -119,6 +143,8 @@ export const products: Product[] = [
     price: 20.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'x-calabacon',
@@ -127,6 +153,8 @@ export const products: Product[] = [
     price: 22.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'x-calabresa-egg',
@@ -135,6 +163,8 @@ export const products: Product[] = [
     price: 23.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'la-calabresa',
@@ -143,6 +173,8 @@ export const products: Product[] = [
     price: 20.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'la-frango-desfiado',
@@ -151,6 +183,8 @@ export const products: Product[] = [
     price: 23.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'la-toscana',
@@ -159,6 +193,8 @@ export const products: Product[] = [
     price: 22.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'x-tudo',
@@ -167,6 +203,8 @@ export const products: Product[] = [
     price: 28.00,
     category: 'tradicionais',
     image: '/images/burger-tradicional.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   
   // Passaportes (Hot Dogs)
@@ -177,6 +215,8 @@ export const products: Product[] = [
     price: 16.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'passaporte-frango-catupiry',
@@ -185,6 +225,8 @@ export const products: Product[] = [
     price: 19.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'passaporte-frango-cheddar',
@@ -193,6 +235,8 @@ export const products: Product[] = [
     price: 19.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'passaporte-frango-calabresa',
@@ -201,6 +245,8 @@ export const products: Product[] = [
     price: 19.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'passaporte-frango-bacon',
@@ -209,6 +255,8 @@ export const products: Product[] = [
     price: 20.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'passaporte-toscana',
@@ -217,6 +265,8 @@ export const products: Product[] = [
     price: 21.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'passaporte-carne',
@@ -225,6 +275,8 @@ export const products: Product[] = [
     price: 20.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'passaporte-carne-catupiry',
@@ -233,6 +285,8 @@ export const products: Product[] = [
     price: 22.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'passaporte-carne-cheddar',
@@ -241,6 +295,8 @@ export const products: Product[] = [
     price: 22.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'passaporte-carne-sol',
@@ -249,6 +305,8 @@ export const products: Product[] = [
     price: 28.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'passaporte-file-bovino',
@@ -257,6 +315,8 @@ export const products: Product[] = [
     price: 23.00,
     category: 'passaportes',
     image: '/images/passaporte.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   
   // Bebidas
@@ -267,6 +327,8 @@ export const products: Product[] = [
     price: 5.50,
     category: 'bebidas',
     image: '/images/coca-cola-lata.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'coca-cola-zero-lata',
@@ -275,6 +337,8 @@ export const products: Product[] = [
     price: 5.50,
     category: 'bebidas',
     image: '/images/Coca-cola-lata-zero.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'guarana-lata',
@@ -283,6 +347,8 @@ export const products: Product[] = [
     price: 5.00,
     category: 'bebidas',
     image: '/images/Guarana-Antarctica-lata.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'guarana-zero-lata',
@@ -291,6 +357,8 @@ export const products: Product[] = [
     price: 5.50,
     category: 'bebidas',
     image: '/images/Guarana-Antarctica-latazero.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'fanta-lata',
@@ -299,6 +367,8 @@ export const products: Product[] = [
     price: 5.00,
     category: 'bebidas',
     image: '/images/fanta-lata.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'agua-mineral',
@@ -307,6 +377,8 @@ export const products: Product[] = [
     price: 3.00,
     category: 'bebidas',
     image: '/images/agua-sem-gas.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'agua-gas',
@@ -323,6 +395,8 @@ export const products: Product[] = [
     price: 8.00,
     category: 'bebidas',
     image: '/images/Guarana-Antarctica-1l.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'guarana-2l',
@@ -331,6 +405,8 @@ export const products: Product[] = [
     price: 12.00,
     category: 'bebidas',
     image: '/images/Guarana-Antarctica-2l.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'coca-cola-1l',
@@ -339,6 +415,8 @@ export const products: Product[] = [
     price: 10.00,
     category: 'bebidas',
     image: '/images/coca-cola-15l.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'coca-cola-2l',
@@ -347,6 +425,8 @@ export const products: Product[] = [
     price: 14.00,
     category: 'bebidas',
     image: '/images/coca-cola-2l.png',
+    imageWidth: 150,
+    imageHeight: 150
   },
   {
     id: 'fanta-1l',
@@ -355,6 +435,8 @@ export const products: Product[] = [
     price: 8.00,
     category: 'bebidas',
     image: '/images/fanta-1l.png',
+    imageWidth: 150,
+    imageHeight: 150
   }
 ];
 
