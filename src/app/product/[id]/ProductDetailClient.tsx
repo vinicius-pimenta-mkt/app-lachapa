@@ -46,7 +46,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
     );
   }
 
-  const imageSrc = product.image
+  const imageSrc = product.image;
 
   const handleQuantityChange = (value: number) => {
     const newQuantity = quantity + value;
